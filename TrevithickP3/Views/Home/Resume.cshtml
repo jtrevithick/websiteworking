@@ -1,0 +1,102 @@
+﻿@model TrevithickP3.Models.ResumeViewModel
+
+
+@{
+    ViewData["Title"] = "Resume";
+}
+
+<h2>Resume</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dd>
+            @Html.DisplayFor(model => model.Preamble)
+        </dd>
+    </dl>
+    <dl class="d2-horizontal">
+        <dd>
+            @Html.DisplayName("Skills")<a asp-area="" asp-controller="Skills" asp-action="Index">Details</a>
+        </dd>
+        <dd>
+
+
+            <table>
+
+                @foreach (var skill in Model.SkillItems)
+                {
+                <tr>
+                    <td>Description:</td>
+                    <td>@skill.Description</td>
+                    <td style="margin: 10px; padding: 5px;"> </td>
+                    <td>Title:</td>
+                    <td>@skill.Title</td>
+
+                </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+    <dl class="d3-horizontal">
+        <dd>
+            @Html.DisplayName("Education")<a asp-area="" asp-controller="Educations" asp-action="Index">Details</a>
+        </dd>
+        <dd>
+
+
+            <table>
+
+                @foreach (var ed in Model.EducationItems)
+                {
+                <tr>
+                    <td>Degree:</td>
+                    <td>@ed.Degree </td>
+                    <td style="margin: 10px; padding: 5px;"> </td>
+                    <td> School: </td>
+                    <td> @ed.School</td>
+                    <td style="margin: 10px; padding: 5px;"> </td>
+                    <td>Start Date:</td>
+                    <td>@ed.Start</td>
+                    <td style="margin: 10px; padding: 5px;"> </td>
+                    <td>End Date:</td>
+                    <td>@ed.End</td>
+                </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+    <dl class="d4-horizontal">
+        <dd>
+            @Html.DisplayName("Experience")<a asp-area="" asp-controller="Experiences" asp-action="Index">Details</a>
+        </dd>
+        <dd>
+
+
+            <table>
+
+                @foreach (var ex in Model.ExperienceItems)
+                {
+                <tr>
+                    <td>Description: </td>
+                   
+                    <td>@ex.Description </td>
+                    <td style="margin: 10px; padding: 5px;"> </td>
+                    <td>Title:</td>
+                    <td> @ex.Title</td>
+                    <td style="margin: 10px; padding: 5px;"> </td>
+                    <td>Start Date:</td>
+                    <td>@ex.Start</td>
+                    <td style="margin: 10px; padding: 5px;"> </td>
+                    <td>End Date:</td>
+                    <td>@ex.End</td>
+                </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    
+</div>

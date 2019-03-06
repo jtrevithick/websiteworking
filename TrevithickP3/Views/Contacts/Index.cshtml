@@ -1,0 +1,91 @@
+﻿@model IEnumerable<TrevithickP3.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Generalmessage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Webapp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Windowsapp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phoneapp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Generalmessage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Webapp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Windowsapp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phoneapp)
+            </td>
+            <td>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.ContactID">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.ContactID">Delete</a>
+                    }
+                }
+                 |
+                <a asp-action="Details" asp-route-id="@item.ContactID">Details</a>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
